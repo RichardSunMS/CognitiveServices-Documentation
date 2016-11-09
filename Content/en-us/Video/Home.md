@@ -1,4 +1,4 @@
-<!-- 
+﻿<!-- 
 NavPath: Video API
 LinkLabel: Overview
 Url: Video-api/documentation/Home
@@ -20,7 +20,7 @@ The detected and tracked faces are returned with coordinates (left, top, width, 
 For more details about how to use face detection and tracking, refer to the [Video API reference guide](https://dev.projectoxford.ai/docs/services/565d6516778daf15800928d5/operations/565d6517778daf0978c45e39).
 
 ## Motion Detection
-The Motion Detection API provides indicators once there are objects in motion in a fixed background video (e.g. a surveillance video). Motion Detection is trained to reduce false alarms, such as lighting and shadow changes. Current limitations of the algorithms include night vision videos, semi-transparent objects, and small objects.
+The Motion Detection API provides indicators once there are objects in motion in a fixed background video (e.g. a surveillance video). The API allows you to input motion detection zones to define areas in the frame to detect the motion. Motion Detection is trained to reduce false alarms. Current limitations of the algorithms include semi-transparent objects and small objects. Developers have the ability to adjust sensitivity levels to detect smaller objects.
 
 Motion detection can be done by uploading an entire video file or by specifying the URL of an existing video on the web.
 

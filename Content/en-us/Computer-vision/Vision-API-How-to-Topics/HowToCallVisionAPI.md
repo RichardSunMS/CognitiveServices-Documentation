@@ -1,7 +1,7 @@
 <!-- 
-NavPath: Computer Vision API
+NavPath: Computer Vision API/How-to Topics
 LinkLabel: How to call Computer Vision API
-Url: Computer-Vision-API/documentation/HowToCallVisionAPI
+Url: Computer-Vision-API/documentation/vision-api-how-to-topics/HowToCallVisionAPI
 Weight: 93
 -->
 

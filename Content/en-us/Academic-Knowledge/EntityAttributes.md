@@ -14,6 +14,7 @@ Ti		|Paper title				|String		|Equals,<br/>StartsWith
 Y		|Paper year					|Int32		|Equals,<br/>IsBetween
 D		|Paper date					|Date		|Equals,<br/>IsBetween
 CC		|Citation count				|Int32		|none  
+ECC		|Estimated citation Count		|Int32		|none
 AA.AuN	|Author name				|String		|Equals,<br/>StartsWith
 AA.AuId	|Author ID					|Int64		|Equals
 AA.AfN	|Author affiliation name	|String		|Equals,<br/>StartsWith

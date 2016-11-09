@@ -7,7 +7,7 @@ Weight: 5
 
 # Get started with Bing Speech Recognition and/or intent in Java on Android
 
-Develop a basic Android application that uses Bing Speech Recognition API to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Using the client library allows for real-time streaming, which means that at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. The rest of this page describes use of the client library, which currently supports the 28 languages (see table in Step 2). The example below defaults to American English, “en-US”.
+Develop a basic Android application that uses Bing Speech Recognition API to convert spoken audio to text by sending audio to Microsoft’s servers in the cloud. Using the client library allows for real-time streaming, which means that at the same time your client application sends audio to the service, it simultaneously and asynchronously receives partial recognition results back. The rest of this page describes use of the client library, which currently supports the 28 languages (see table in Step 2). The example below defaults to American English, “en-US”. 
 
 ###Table of Contents
  * [Prerequisites](#Prerequisites)
@@ -24,7 +24,7 @@ Develop a basic Android application that uses Bing Speech Recognition API to con
 The below example has been developed for [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
 
  * #### Get the client library and example
-Download Speech Recognition API Client Library for Android from [this link](../../../SDK-Sample?api=bing%20speech&platform=android). The downloaded files need to be saved to a folder of your choice. Inside there is both a fully buildable example and the SDK library. The buildable example can be found under **samples** in the **SpeechRecoExample** directory. The two libraries you need to use in your own apps can be found in the **SpeechSDK** folder under **libs** in the **armeabi** and the **x86** folder. The size of **libandroid_platform.so** file is 22 MB but gets reduced to 4MB at deploy time. 
+Download Speech Recognition API Client Library for Android from [this link](https://github.com/microsoft/cognitive-speech-stt-android). The downloaded files need to be saved to a folder of your choice. Inside there is both a fully buildable example and the SDK library. The buildable example can be found under **samples** in the **SpeechRecoExample** directory. The two libraries you need to use in your own apps can be found in the **SpeechSDK** folder under **libs** in the **armeabi** and the **x86** folder. The size of **libandroid_platform.so** file is 22 MB but gets reduced to 4MB at deploy time. 
 
  * #### Subscribe to Speech API and get a free trial subscription key 
 Before creating the example, you must subscribe to Speech API which is part of Cognitive Services. Click the yellow **"Try for free"** button on one of the offered services, in this case Speech API, and follow the directions. For subscription and key management details, see [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial. 

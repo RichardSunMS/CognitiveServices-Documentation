@@ -28,7 +28,7 @@ This tutorial explores entity linking by using the Entity Linking Client Library
 - Get the client library and example
 - Microsoft Entity Linking NuGet Package
 
-You may download the Entity Linking Intelligence Service API Client Library via [SDK](../../SDK-Sample?api=entity%20linking). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
+You may download the Entity Linking Intelligence Service API Client Library via [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
 
 ### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">Step 1: Subscribe to Entity Linking Intelligence Service and get your key</a>
 Before using Entity Linking Intelligence Service, you must sign up for an API key. See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial.

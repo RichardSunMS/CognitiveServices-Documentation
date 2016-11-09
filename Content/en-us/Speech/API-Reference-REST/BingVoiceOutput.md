@@ -8,18 +8,6 @@ Weight: 180
 
 # Bing Text To Speech API
 
-
-### Non Disclosure Agreement.
-
-© 2016 Microsoft. All rights reserved.
-
-This document is provided “as-is”. Information and views expressed in this document, including URLs and other Internet website references, may change without notice.
-
-Examples are provided for illustration only.
-
-This document does not provide you with any legal rights to intellectual property in any Microsoft product. You may copy and use this document for your internal reference purposes. This document is confidential and proprietary to Microsoft. It can be used only in agreement with a non-disclosure agreement.
-
---------------------------------------------------
 ## Contents
 [1. Introduction](#Introduction)  
 [2. Voice Synthesis Request](#VoiceSynReq)
@@ -28,8 +16,8 @@ This document does not provide you with any legal rights to intellectual propert
 * [Example voice output request](#SampleVoiceOR) 
 
 [3. Voice Output Responses](#VoiceOutResponse) 
-  * [Successful recognition Response](#SuccessfulRecResponse) 
-  * [Recognition failure](#RecFailure)
+  * [Successful synthesis Response](#SuccessfulRecResponse) 
+  * [Synthesis failure](#RecFailure)
   * [Error responses](#ErrorResponse) 
 
 [4. Supported Locales and Voice Fonts](#SupLocales)  
@@ -37,13 +25,13 @@ This document does not provide you with any legal rights to intellectual propert
  
 ## <a name="Introduction">1. Introduction</a>
 
-This documentation describes the Bing Voice Output API which exposes an HTTP interface that enables developers to synthesize voice queries. The Bing Voice Output API may be used in many different contexts that need cloud-based voice recognition and synthesis capabilities.  
+This documentation describes the Bing Text to Speech API which exposes an HTTP interface that enables developers to synthesize voice queries. The Bing Text To Speech API may be used in many different contexts that need cloud-based voice recognition and synthesis capabilities.  
 
 ## <a name="VoiceSynReq">2. Voice Synthesis Request</a>
 
 Clients must use the following end-point to access the service and build voice enabled applications: [https://speech.platform.bing.com/synthesize](https://speech.platform.bing.com/synthesize) 
 
-Note! Until you have submitted your subscription key as described in [Bing Voice Recognition](./BingVoiceRecognition.md), this link will generate a 403 Response Error.
+Note! Until you have submitted your subscription key as described in [Bing Speech Recognition](./BingVoiceRecognition.md), this link will generate a 403 Response Error.
 
 The API uses HTTP POST to send audio back to the client. The maximum amount of audio returned for a given request must not exceed 15 seconds. 
  
@@ -59,12 +47,11 @@ X-Microsoft-OutputFormat     |    **1)** raw-8khz-8bit-mono-mulaw, **2)** raw-16
 X-Search-AppId     |    A GUID (hex only, no dashes)     |     An ID that uniquely identifies the client application. This can be Store ID for Apps. If one is not available, the ID may be user generated per-application.     
 X-Search-ClientID     |     A GUID (hex only, no dashes)    |    An ID that uniquely identifies application instance per-installation.     
 User-Agent     |     Application name    |     Application name is required and must be less than 255 characters.    
-X-Search-PartnerEventID     |    A GUID (hex only, no dashes)     |     Azure Offer ID is a required parameter.    
 
 
 ### <a name="InputParam">Input parameters</a>
 
-Inputs to the Bing Voice API are expressed as HTTP query parameters. Parameters in the POST body are treated as SSML content. Refer to the W3C specifications ([http://www.w3.org/TR/speech-synthesis/](http://www.w3.org/TR/speech-synthesis/)). The following is a complete list of recognized input parameters. Unsafe characters should be escaped following the W3C URL specifications ([http://www.w3.org/Addressing/URL/url-spec.txt](http://www.w3.org/Addressing/URL/url-spec.txt)). A request with more than one instance of any parameter will result in an error response (HTTP 400). 
+Inputs to the Bing Text to Speech API are expressed as HTTP query parameters. Parameters in the POST body are treated as SSML content. Refer to the W3C specifications ([http://www.w3.org/TR/speech-synthesis/](http://www.w3.org/TR/speech-synthesis/)). The following is a complete list of recognized input parameters. Unsafe characters should be escaped following the W3C URL specifications ([http://www.w3.org/Addressing/URL/url-spec.txt](http://www.w3.org/Addressing/URL/url-spec.txt)). A request with more than one instance of any parameter will result in an error response (HTTP 400). 
 
 ###  <a name="SampleVoiceOR">Example voice output request</a>
 
@@ -88,7 +75,7 @@ Content-Length: 197
 
 The API response contains the audio stream and the codec and will match the requested output format.
  
-#### <a name="SuccessfulRecResponse">Succcessful recognition response</a>
+#### <a name="SuccessfulRecResponse">Succcessful synthesis response</a>
 
 Example JSON response for a successful voice search. The comments and formatting of the JSON below is for example reasons only. The real result will omit indentation spaces, smart quotes, comments, etc. 
 ```
@@ -99,9 +86,9 @@ Content-Type: audio/x-wav
 Response audio payload       
 ```
  
-#### <a name="RecFailure">Recognition failure</a>
+#### <a name="RecFailure">Synthesis failure</a>
 
-Example JSON response for a voice search query where the user’s speech could not be recognized.
+Example JSON response for a voice synthesis query failure.
 
 ```
 HTTP/1.1 400 XML parser error
@@ -154,7 +141,7 @@ it-IT|Male|"Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)
 ja-JP|Female|"Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)"
 ja-JP|Male|"Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
 pt-BR|Male|"Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)"
-ru-RU|Female|"Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)"
+ru-RU|Female|"Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 ru-RU|Male|"Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
 zh-CN|Female|"Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
 zh-CN|Female|"Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)"

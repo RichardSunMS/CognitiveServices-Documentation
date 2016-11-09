@@ -26,7 +26,7 @@ Explore a basic Windows application that uses Emotion API to recognize the emoti
   Before creating the example, you must subscribe to Emotion API which is part of the Microsoft Cognitive Services (previously Project Oxford). See [Subscriptions](https://www.microsoft.com/cognitive-services/en-us/sign-up). Both the primary and secondary key can be used in this tutorial. Make sure to follow best practices for keeping your API key secret and secure.  
 #### Get the client library and example  
 
-  You may download the Emotion API client library via [SDK](../../SDK-Sample?api=emotion&platform=windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
+  You may download the Emotion API client library via [SDK](https://www.github.com/microsoft/cognitive-emotion-windows). The downloaded zip file needs to be extracted to a folder of your choice, many users choose the Visual Studio 2015 folder.
 
 ## <a name="Step1">Step 1: Open the example</a>
 1.	Start Microsoft Visual Studio 2015 and click **File**, select **Open**, then **Project/Solution**.
@@ -51,15 +51,14 @@ Explore a basic Windows application that uses Emotion API to recognize the emoti
 ![Emotion Functionality Interface](./Images/EmotionKey.png)
 
 3.	Under "**Select Scenario**" click to use either of the two scenarios, “**Detect emotion using a stream**” or “**Detect emotion using a URL**”, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Emotion API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](http://research.microsoft.com/en-us/UM/legal/ProjectOxford_CodeOfConduct.htm).
-4.	There are example images to be used with this example application. You can find these images on [Github](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) under **Face**, **Windows**, then search the **Data** folder. Please note the use of these images is licensed under Fair Use agreement meaning they are OK to use for testing this example, but not for republishing.
-## <a name="Review">Review and Learn</a>
-Now that you have a running application, let us review how this example app integrates with Microsoft Cognitive Services technology. This will make it easier to either continue building onto this app or develop your own app using Microsoft's Emotion API. 
+4.	There are example images to be used with this example application. You can find these images on [the Face API Github repo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) under the **Data** folder. Please note the use of these images is licensed under Fair Use agreement meaning they are OK to use for testing this example, but not for republishing.
+
 
 
 ## <a name="Review">Review and Learn</a>
 Now that you have a running application, let us review how this example app integrates with Microsoft Cognitive Services. This will make it easier to either continue building onto this app or develop your own app using Microsoft Emotion API. 
 
-This example app makes use of the Emotion API Client Library, a thin C# client wrapper for the Microsoft Emotion API. When you built the example app as described above, you got the Client Library from a NuGet package. You can review the Client Library source code in the folder titled “[Client Library](https://github.com/Microsoft/ProjectOxford-ClientSDK/tree/master/Emotion/Windows/ClientLibrary)” under **Emotion**, **Windows**, **Client Library**, which is part of the downloaded file repository mentioned above in [Prerequisites](#Prerequisites).
+This example app makes use of the Emotion API Client Library, a thin C# client wrapper for the Microsoft Emotion API. When you built the example app as described above, you got the Client Library from a NuGet package. You can review the Client Library source code in the folder titled “[Client Library](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)” under **Emotion**, **Windows**, **Client Library**, which is part of the downloaded file repository mentioned above in [Prerequisites](#Prerequisites).
  
 You can also find out how to use the Client Library code in **Solution Explorer**: Under **EmotionAPI-WPF_Samples**, expand **DetectEmotionUsingStreamPage.xaml** to locate **DetectEmotionUsingStreamPage.xaml.cs**, which is used for browsing to a locally stored file, or expand **DetectEmotionUsingURLPage.xaml** to find **DetectEmotionUsingURLPage.xaml.cs**, which is used when uploading an image URL. Double-click the .xaml.cs files to have them open in new windows in Visual Studio. 
 

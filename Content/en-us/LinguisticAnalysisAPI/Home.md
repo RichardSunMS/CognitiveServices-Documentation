@@ -8,7 +8,7 @@ Weight: 120
 # Linguistic Analysis APIs Overview
 
 Welcome to the Linguistic Analysis APIs.
-These APIs provide access to natural langauge processing (NLP) tools that identify the structure of text.
+These APIs provide access to natural language processing (NLP) tools that identify the structure of text.
 The current release provides three types of analysis:
 
  - [Sentence separation and tokenization](Sentences-and-Tokens.md)

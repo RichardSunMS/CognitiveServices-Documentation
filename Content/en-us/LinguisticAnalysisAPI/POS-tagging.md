@@ -19,7 +19,7 @@ For some words, the part-of-speech is unambiguous (for instance, *quagmire* is r
 | Tag | Description | Example words |
 |-----|-------------|---------------|
 | $ | dollar | $ |
-| `` | opening quotation mark | ` `` |
+| \`\` | opening quotation mark | \` \`\` |
 | '' | closing quotation mark | ' '' |
 | ( | opening parenthesis | ( [ { |
 | ) | closing parenthesis | ) ] } |

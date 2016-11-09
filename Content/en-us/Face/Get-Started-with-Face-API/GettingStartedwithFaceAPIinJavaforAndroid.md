@@ -8,7 +8,7 @@ Weight: 30
 
 In this tutorial, you will learn to create and develop a simple Android application that invokes the Face API to detect human faces in an image; essentially by framing the face.     
 
-![GettingStartedAndroid](../Images/android_getstarted2.1.png)
+![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
 
 ## Table of Contents
 
@@ -294,7 +294,7 @@ Thirdly, add a call to the detectAndFrame method from onActivityResult method:
 
 Run this application and browse for an image containing a face. Please wait for a few seconds to allow the cloud API to respond. After that, you will get a result similar to the image below: 
 
-![GettingStartAndroid](../Images/android_getstarted2.1.png)
+![GettingStartAndroid](../Images/android_getstarted2.1.PNG)
 
 ## <a name="summary"></a> Summary
 
@@ -302,4 +302,5 @@ In this tutorial, you have learned the basic process for using the Face API and 
 
 ## <a name="related"></a> Related Topics
 
-[Getting Started with Face API in CSharp](GettingStartedwithFaceAPIinCSharp.md)
+- [Getting Started with Face API in CSharp](GettingStartedwithFaceAPIinCSharp.md)
+- [Getting Started with Face API in Python](GettingStartedwithFaceAPIinPython.md)

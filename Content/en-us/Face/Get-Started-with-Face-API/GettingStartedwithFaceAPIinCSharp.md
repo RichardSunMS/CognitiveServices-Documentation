@@ -197,4 +197,5 @@ In this tutorial, you have learned the basic process for using the Face API and 
 
 ## <a name="related"></a> Related Topics
 
-[Getting Started with Face API in Java for Android](GettingStartedwithFaceAPIinJavaforAndroid.md)
+- [Getting Started with Face API in Java for Android](GettingStartedwithFaceAPIinJavaforAndroid.md)
+- [Getting Started with Face API in Python](GettingStartedwithFaceAPIinPython.md)

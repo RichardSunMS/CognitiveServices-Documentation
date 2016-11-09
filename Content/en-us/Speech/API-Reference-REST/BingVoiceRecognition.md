@@ -1,34 +1,25 @@
-<!-- 
+﻿<!-- 
 NavPath: Bing Speech API/Speech Recognition/REST API
 LinkLabel: API Reference
 Url: Speech-api/documentation/API-Reference-REST/BingVoiceRecognition
 Weight: 90
 -->
 
-# Bing Voice Recognition API
+# Bing Speech Recognition API
 
-
-### Non Disclosure Agreement. 
-© 2016 Microsoft. All rights reserved.
-
-This document is provided “as-is”. Information and views expressed in this document, including URLs and other Internet website references, may change without notice. 
-
-Examples are provided for illustration only. 
-
-This document does not provide you with any legal rights to intellectual property in any Microsoft product. You may copy and use this document for your internal reference purposes. This document is confidential and proprietary to Microsoft. It can be used only in agreement with a non-disclosure agreement. 
-
---------------------------------------------------
 ### Contents
 [1. Introduction](#Introduction)  
-[2. Voice Recognition Request](#VoiceRecReq)
+
+[2. Speech Recognition Request](#VoiceRecReq)
 * [Authenticate the API call](#Authorize)
+* [Access the Speech Service Endpoint](#SpeechService)
 * [HTTP headers](#Http) 
 * [Input parameters](#InputParam) 
 * [Required parameters](#ReqParam) 
 * [Optional parameters](#OptParam) 
-* [Sample voice recognition request](#SampleVoiceRR)  
+* [Sample speech recognition request](#SampleVoiceRR)  
 
-[3. Voice Recognition Responses](#VoiceRecResponse)
+[3. Speech Recognition Responses](#VoiceRecResponse)
 * [Normal response](#NormalResponse)  
   * [Schema 1](#Schema1) 
   * [Schema 2](#Schema2) 
@@ -43,61 +34,38 @@ This document does not provide you with any legal rights to intellectual propert
 
 ### <a name="Introduction">1. Introduction</a>
 
-This documentation describes the Bing Voice API that exposes an HTTP interface which enables developers to transcribe and synthesize voice queries. The Bing Voice API may be used in many different contexts that need cloud-based voice recognition and synthesis capabilities. 
+This documentation describes the Bing Speech Recognition REST API that exposes an HTTP interface which enables developers to transcribe voice queries. The Bing Speech Recognition API may be used in many different contexts that need cloud-based speech recognition capabilities. 
 
 
-### <a name="VoiceRecReq">2. Voice Recognition Request</a>
+### <a name="VoiceRecReq">2. Speech Recognition Request</a>
 ### <a name="Authorize">Authenticate the API call</a>
-Every call to the Speech API requires a JWT access token. This token needs to be passed through as part of the Speech request header. 
+Every call to the Speech API requires a JWT access token. This token needs to be passed through as part of the Speech request header. The token has a expiry time of 10 minutes. 
 
 Subscription key is first passed to the token service, for example:
 ```
-POST https://oxford-speech.cloudapp.net/token/issueToken
-Content-Type: application/x-www-form-urlencoded
-
-grant_type=client_credentials&client_id=<Your subscription key>&client_secret=<Your subscription key>&scope=https%3A%2F%2Fspeech.platform.bing.com
+POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
+Content-Length: 0
 
 ```
-### <a name="TokenReqParam">Required parameters</a>
+The required header for token access is:
 
-Name           |Format              |Description, example and use  
----------------|--------------------|-----------------------------
-grant_type     |  UTF-8             | Must be client_credentials.
-client_id      |  UTF-8             | Your subscription key.
-client_secret  |  UTF-8             | Your subscription key.
-scope          |  UriEncoded-String | Must be `https://speech.platform.bing.com`.
+Name                     |Format              |Description, example and use  
+-------------------------|--------------------|-----------------------------
+Ocp-Apim-Subscription-Key|  ASCII             | Your subscription key.
 
 
-```
-```
+The expected token response is the JWT access token as text/plain.
 
-
-### <a name="TokenRespParam">Token Response</a>
-
-
-```json
-
-Content-Type: application/json; charset=utf-8
-
-{
-   "access_token":`<Base64-access_token>`,
-   "token_type":"jwt",
-   "expires_in":"600",
-   "scope":"https://speech.platform.bing.com"
-}
-
-```
-
-The `access_token` field is passed to the Speech request as an HTTP request header, for example: 
+The jwt token is passed to the Speech request as an HTTP request header, for example: 
 
 ```
 Authorization: Bearer <Base64-access_token>
 ```
 
 
+### <a name="SpeechService">Access the Speech Service Endpoint</a>
 
-
-Clients must use the following end-point to access the service and build voice enabled applications: [https://speech.platform.bing.com/recognize](https://speech.platform.bing.com/recognize) 
+Clients must use the following end-point to access the service and build voice enabled applications:<b> [https://speech.platform.bing.com/recognize](https://speech.platform.bing.com/recognize) </b>
 
 <B>Note! Until you have acquired an `access token` with your subscription key as described above this link will generate a 403 Response Error.</B>
 
@@ -112,27 +80,14 @@ The token [Base64 access_token](#TokenRespParam) requested must be passed to the
 
 `Authorization: Bearer [Base64 access_token]`
 
-A Content-Type header is **required**. The Content-Type header value specifies the audio format being uploaded. The value is a semicolon-separated list of key/value pairs that describe the audio data. For example: 
-
-`audio/wav; codec=”audio/wav”; samplerate=16000; sourcerate=8000; trustsourcerate=false`
-
-The Voice API supports audio/wav using the following codecs: 
+The Speech Recognition API supports audio/wav using the following codecs: 
   •  PCM single channel
   •  Siren
   •  SirenSR
 
-The **required** samplerate is the rate at which the audio data was encoded. Valid values are 8000 and 16000, which should match the value of the samplerate in the RIFF header. 
-
-The optional sourcerate is the rate at which the source data was recorded. The sourcerate value, if specified, must be greater than 0. The sourcerate defaults to 8000. 
-
-The optional trustsourcerate is an assertion by the client as to the validity of the sourcerate. If trustsourcerate=true, the audio data has been under the continuous control of the client and the sourcerate is correct. If trustsourcerate=false, the audio data has an unknown history and the sourcerate may or may not be correct. 
-
-The combination of the sourcerate and the samplerate are used to select the appropriate acoustic model. If the trustsourcerate value is specified and set to false, the sourcerate value will not be used in the determination of the appropriate acoustic model. 
-
-
 ### <a name="InputParam">Input parameters</a>
 
-Inputs to the Bing Voice API are expressed as HTTP query parameters. Parameters in the POST body are treated as audio content. The following is a complete list of recognized input parameters. Unsafe characters should be escaped following the W3C URL spec ([http://www.w3.org/Addressing/URL/url-spec.txt](http://www.w3.org/Addressing/URL/url-spec.txt)). A request with more than one instance of any parameter will result in an error response (HTTP 400). 
+Inputs to the Bing Speech Recognition API are expressed as HTTP query parameters. Parameters in the POST body are treated as audio content. The following is a complete list of recognized input parameters. Unsafe characters should be escaped following the W3C URL spec ([http://www.w3.org/Addressing/URL/url-spec.txt](http://www.w3.org/Addressing/URL/url-spec.txt)). A request with more than one instance of any parameter will result in an error response (HTTP 400). 
 
 ### <a name="ReqParam">Required parameters</a>
 
@@ -159,9 +114,10 @@ Name  |Format  |Description and example
 maxnbest     |     Integer    |       Maximum number of results the voice application API should return. The default is 1. The maximum is 5. **Example:** maxnbest=3   
 result.profanitymarkup     |     0/1    |      Scan the result text for words included in an offensive word list. If found, the word will be delimited by bad word tag. **Example:** result.profanity=1 (0 means off, 1 means on, default is 1.)
 
-###  <a name="SampleVoiceRR">Example voice recognition request</a>
+A working code sample of REST API implementation can be found [here](https://oxfordportal.blob.core.windows.net/speech/doc/recognition/Program.cs). 
+###  <a name="SampleVoiceRR">Example speech recognition request</a>
 
-The following is an example of a voice search request where the audio is supplied as part of a recognition request: 
+The following is an example of a request where the audio is supplied as part of a recognition request: 
    
 ```
 POST /recognize?scenarios=catsearch&appid=f84e364c-ec34-4773-a783-73707bd9a585&locale=en-US&device.os=wp7&version=3.0&format=xml&requestid=1d4b6030-9099-11e0-91e4-0800200c9a66&instanceid=1d4b6030-9099-11e0-91e4-0800200c9a66 HTTP/1.1
@@ -171,7 +127,7 @@ Authorization: Bearer [Base64 access_token]
 
 (audio data)
 ```
-## <a name="VoiceRecResponse">3. Voice Recognition Responses</a>
+## <a name="VoiceRecResponse">3. Speech Recognition Responses</a>
 
 The API response is returned in JSON format. The value of the “name” tag has the post-inverse text normalization result. The value of the “lexical” tag has the pre-inverse text normalization result. 
 
@@ -207,7 +163,6 @@ results: [{scenario name lexical confidence pronunciation tokens}*] // n-best li
      scenario: string // the scenario this recognition result came from. 
      name: string // formatted recognition result. Profane terms are surrounded with <profanity> tags. 
      lexical: string // text of what was spoken. Profane terms are surrounded with <profanity> tags. 
-     confidence: float // floating point number indicating the result confidence (from 0.0 to 1.0 with 1.0 being the maximum confidence level. Example: 0.876534) 
      properties: {<HIGHCONF>} 
            HIGHCONF: 1 // set when the header result is determined to be of high-confidence. 
            MIDCONF: 1 // set when the header result is determined to be of medium-confidence. 
@@ -323,7 +278,6 @@ Content-Type: application/json; charset=UTF-8
     "name":"Mc Dermant Autos",
     # The text of what was spoken
     “lexical”:”mac dermant autos”,
-    "confidence":"0.9442599",
     # Words that make up the result; a word can include a space if there
     # isn’t supposed to be a pause between words when speaking them
     "tokens":[{ 
@@ -384,6 +338,8 @@ Content-Type: application/json; charset=UTF-8
 **Http/401 Unauthorized:** Will be returned if the request is not authorized. 
 
 **Http/502 BadGateway:** Will be returned when the service was unable to perform the recognition. 
+
+**Http/403 Forbidden:** Will be returned when there are issues with your authentication or quota.
 
 Example response for a voice search request submitted with a bad parameter. This is the error response format regardless of what format the user has requested. 
 

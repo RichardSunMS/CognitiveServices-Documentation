@@ -26,6 +26,15 @@ The Web LM REST API supports four lookup operations:
 ## Getting Started
 
 1. Subscribe to the service.
-2. Download the [SDK](../Sdk-Sample?api=weblm).
+2. Download the [SDK](https://www.github.com/microsoft/cognitive-weblm-windows).
 3. Run the SDK sample code. 
 4. Consult the [API Reference](https://dev.projectoxford.ai/docs/services/55de9ca4e597ed1fd4e2f104) for further details, including code snippets in a variety of languages.
+
+
+## Underlying Technology
+
+The following paper provides details on the development of these language models, and should be cited in research publications that utilize this service:
+
+* [An Overview of Microsoft Web N-gram Corpus and Applications](http://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
+
+Click [here](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0) for a current list of papers citing this work.

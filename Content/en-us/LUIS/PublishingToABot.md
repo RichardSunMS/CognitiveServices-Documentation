@@ -17,7 +17,7 @@ The Slack integration is a direct integration with a Slack bot while the Microso
 
 ###Using the Microsoft Bot Framework
 
-The Microsoft Bot Framework enables developers to build and connect intelligent bots to ineract with users no matter which device they are on or which technology they are using, for example Skype text/sms, Slack, Office365 mail and many other popular services. In combination with LUIS the developer can use the Bot Framework to enable triggering actions via any popular communication channel in an easy way. The developer simply has to create a new bot in the MS Bot Framework and then configure LUIS the right way to enable calling one service to the other. 
+The Microsoft Bot Framework enables developers to build and connect intelligent bots to interact with users no matter which device they are on or which technology they are using, for example Skype text/sms, Slack, Office365 mail and many other popular services. In combination with LUIS the developer can use the Bot Framework to enable triggering actions via any popular communication channel in an easy way. The developer simply has to create a new bot in the MS Bot Framework and then configure LUIS the right way to enable calling one service to the other. 
 
 ![Bot Framework](./Images/Botframework.png)
 

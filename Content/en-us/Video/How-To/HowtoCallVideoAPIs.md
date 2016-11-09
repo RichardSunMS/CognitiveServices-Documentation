@@ -1,4 +1,4 @@
-<!-- 
+﻿<!-- 
 NavPath: Video API/How To
 LinkLabel: How to Call Video APIs
 Url: video-api/documentation/How-To/HowtoCallVideoAPIs
@@ -198,14 +198,14 @@ Offset     |     The time offset for timestamps. In version 1.0 of Video APIs, t
 Framerate     |   Frames per second of the video.      
 Fragments    |    The metadata is cut up into smaller pieces called fragments. Each fragment contains a start, duration, interval number, and event(s). A fragment with no events means that no motion was detected during that start time and duration.   
 Width, Height     |    Refers to the width and height of the video in pixels.     
-Regions    |    Regions refer to the area(s) in your video where you care about motion. In the current version of Video APIs, you cannot specify a region, instead the whole surface of the video will be the area of motion detection. **1.ID** represents the region area, in this version there is only one, ID 0. **2.Rectangle** represents the shape of the region you are concerned about in regards to motion. In this version, it is always a rectangle. **3.The region has dimensions in X, Y, Width, and Height.** The X and Y coordinates represent the upper left hand X, Y coordinates of the region in a normalized scale of 0.0 to 1.0. The width and height represent the size of the region in a normalized scale of 0.0 to 1.0. In the current version, X, Y, Width, and Height are always fixed at 0, 0 and 1, 1. **4.The X and Y coordinates** are relative to the landscape orientation of a video. For example, if you have a portrait video, you will have to transpose the coordinates accordingly. 
-RegionID     |     As explained above, this will always be 0 in this version. This attribute gives Video API the flexibility to find motion in various regions in future versions. 
+Regions    |    Regions refer to the area(s) in your video where you care about motion.  **1. ID** represents the region area. **2. TYPE** represents the shape of the region you are concerned about in regards to motion. In this version, it is always a polygon. **3. The region** is defined by an array of polygon points, each point has X and Y coordinates in a normalized scale of 0.0 to 1.0. **4. The X and Y coordinates** are relative to the landscape orientation of a video. For example, if you have a portrait video, you will have to transpose the coordinates accordingly. 
 Start     |     The start time of the first event, in ticks.   
 Duration     |   The length of the fragment, in ticks.      
 Interval    |   The length of each event within the fragment, in ticks.    
 Event    |     An of array of events. The outer array represents one interval of time. The inner array consists of 0 or more events that happened at that point in time.  
-Type    |    In the current version, this is always 2. This attribute gives Video APIs the flexibility to categorize types of motion in future versions.     
- 
+Type    |    In the current version, the integer 2 refers to when motion happened, integer 4 refers to when light changes happen.
+TypeName    |    Will be “motion” when Type is 2 and “light change” when Type is 4. (This is a string).      
+Location    |    An array of motion locations indicating where motion happens. There will always be one location in this version. The motion location has dimensions in X, Y, Width, and Height. The X and Y coordinates represent the upper left hand X, Y coordinates of the location in a normalized scale of 0.0 to 1.0. The width and height represent the size of the location in a normalized scale of 0.0 to 1.0. 
 
 Below is a simple example of extracting the JSON into a per frame motion detection result:
 

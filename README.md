@@ -1,6 +1,6 @@
 Microsoft Cognitive Services Documentation
 ====================================
-This repo contains the documentaiton for [Microsoft Cognitive Services](<https://www.microsoft.com/cognitive-services>), which includes the former Project Oxford APIs. You can also check out our SDKs & Samples on our [Client SDK GitHub repo](<https://www.microsoft.com/cognitive-services/en-us/SDK-Sample>).
+This repo contains the documentaiton for [Microsoft Cognitive Services](<https://www.microsoft.com/cognitive-services>), which includes the former Project Oxford APIs. You can also check out our [SDKs & Samples on our website](<https://www.microsoft.com/cognitive-services/en-us/SDK-Sample>).
 
 **Don't see what you're looking for?** We're working on expanding our offerings and would love to hear from you what APIs, docs, SDKs, and samples you want to see next. Let us know on the [Cognitive Services UserVoice Forum](<https://cognitive.uservoice.com>).
 

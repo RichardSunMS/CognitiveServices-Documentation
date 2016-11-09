@@ -1,4 +1,4 @@
-<!-- 
+﻿<!-- 
 NavPath: Video API
 LinkLabel: Glossary
 Url: Video-api/documentation/Glossary
@@ -82,9 +82,13 @@ This is the time offset for timestamps (within the JSON result). In version 1.0 
 
 ### Region of Interest
 
-This is derived from the motion detection JSON results. Regions refers to the area in your video where you care about motion. In the current version of Video APIs, you cannot specify a region, instead the whole surface of the video will be the area of motion that will be detected. 
+This is derived from the motion detection JSON results. Regions refers to the area in your video where you care about motion.  
 
 ## S
+
+### Sensitivity 
+
+User can specify ‘sensitivity level’ for motion detection, which are high, medium, and low, default is medium. Higher sensitivity means more motions will be detected at a cost that more false alarms will be reported.
 
 ### Stabilization
 
@@ -106,7 +110,7 @@ The “ticks” per second of the video (within the JSON result).
 
 ### Type
 
-This is derived from the motion detection JSON results. In the current version, this is always 2. This label gives Video APIs the flexibility to categorize motion in future versions.
+This is derived from the motion detection JSON results.  2 refers to motion, 4 refers to light change. 
 
 ## U
 
